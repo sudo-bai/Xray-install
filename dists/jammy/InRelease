@@ -1,0 +1,47 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Origin: Xray-install
+Label: Xray-install
+Codename: jammy
+Date: Tue, 17 Feb 2026 12:00:03 UTC
+Architectures: amd64 arm64
+Components: main
+Description: Unofficial Xray APT Repository (jammy)
+MD5Sum:
+ b4ae9af26780bfba3ba721d87ac4f9d6 464 main/binary-amd64/Packages
+ c50ed7ad2372efdeeaaf885888520595 353 main/binary-amd64/Packages.gz
+ 5054b3ed40554c1d7d40ccc132d86a69 129 main/binary-amd64/Release
+ ba3b9b48939a12f33b44767dab7f1904 464 main/binary-arm64/Packages
+ ce1275323ca3bfa831bb93590c5e4811 358 main/binary-arm64/Packages.gz
+ e6f192572471b17c9e2ce25261acf072 129 main/binary-arm64/Release
+SHA1:
+ 6fd67b73c4ee160f4ff044859d171003f94fdf8d 464 main/binary-amd64/Packages
+ 95f151fcf8c14b7cc283a315d7f180a9ef61f176 353 main/binary-amd64/Packages.gz
+ ae110b164e021c24cf2a36439f157783182c383c 129 main/binary-amd64/Release
+ cfdd0c77d12a52db44e1733dc8420398dacd7dd4 464 main/binary-arm64/Packages
+ 9f1f45125f6ed22676676dec4b1dce5e740ea3d2 358 main/binary-arm64/Packages.gz
+ b58de02129a3b39eef9d47d987ec3fb43d38ad49 129 main/binary-arm64/Release
+SHA256:
+ 3635163ae67146650890b7c261c36c61c9b890fc94906682d2f6dd5793735846 464 main/binary-amd64/Packages
+ a32d60421f6a9b3acf3ac5256a49be70de2ded3c7e37309514c960339680796f 353 main/binary-amd64/Packages.gz
+ 83f31aa0e167a049d9516fb63bd98b9ee85a6c9b45ebf796ac0b36b79d06ff8e 129 main/binary-amd64/Release
+ a1572d94dd7e091656498ae694498330aaa92bc02777826708ca7091a349dcf2 464 main/binary-arm64/Packages
+ 8da9de02189ebf9e437a674863377159b5d7a53c417da51e5fea2888730650ce 358 main/binary-arm64/Packages.gz
+ 78ade44282de328f331a98339435632f57df96dacde618df18ba586734ea4388 129 main/binary-arm64/Release
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEESCDMkM+0ynXKKRnDDXYL02hDoakFAmmUWEkACgkQDXYL02hD
+oalqkxAAk/35q65VkeDVkGlXw4twgVCa6q+x6O2Aj+ttzpvmvksPGqv5TNSRe6Ov
+RmCJWTFW6jtBwMXytusPEvj5uA+CBzksW7FWLesp3H9rxB4JXdc5S4O7xH/bFXAf
+9Di7Ne5lQz4wMV44sJC0BK97UdL5EdWyV1oTewiGXPnQ5m8k7zQFgJ0UV/gzgxHX
+zSV353unTPf+n1z/nSZhOCVrbtk7dlmKUCKN359YA48b4/wvgNSWhpcgq61hr8/Z
+W0TLVtLLQe+KQ4J/bnqk523pVB8LTgxTgccg8oc5BzsALOFaiYjpHLl3dTFnI+9K
+90vBOHRlFx2cIXbyZK4Isj3wyuGsq2k6lEidf2bcQQAUk2JFPK3MeDXuWqyULVhq
+LPtxhF2JQZ44Ygv4Taqcz+4AIKK0en14nwveSM3qYk/iKDVg2TBakGIJ8kJ+rQ6Y
+GQk6DWBptsskRDs8CZbneZXmLiUuFqDuv/ju/joQlAOrC5jsBzEwV/6G+F1TOcbW
+cHv/9LjQqtakSWpkI7y+/aZde9AX7Hg/cG3jGVMxswavMyTHdAuLcLEio/L1uC/0
+cBI48sR7XyRJwqweV2P+MOa0diwJsLsYuattPI/O0oCbZwq2TDBmCr8+KGjYPY9B
+C8Q0dReskr3yo2KzaVwvFMRTY1gjnVSYtvMxSr7lPaV9pORS8tg=
+=rAAQ
+-----END PGP SIGNATURE-----

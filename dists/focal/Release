@@ -1,0 +1,28 @@
+Origin: Xray-install
+Label: Xray-install
+Codename: focal
+Date: Tue, 17 Feb 2026 12:00:03 UTC
+Architectures: amd64 arm64
+Components: main
+Description: Unofficial Xray APT Repository (focal)
+MD5Sum:
+ b4ae9af26780bfba3ba721d87ac4f9d6 464 main/binary-amd64/Packages
+ c50ed7ad2372efdeeaaf885888520595 353 main/binary-amd64/Packages.gz
+ d4c6435defd8d09819d829ee45a637e3 129 main/binary-amd64/Release
+ ba3b9b48939a12f33b44767dab7f1904 464 main/binary-arm64/Packages
+ ce1275323ca3bfa831bb93590c5e4811 358 main/binary-arm64/Packages.gz
+ 8e649437bc5c6e7dfc590aff05db67de 129 main/binary-arm64/Release
+SHA1:
+ 6fd67b73c4ee160f4ff044859d171003f94fdf8d 464 main/binary-amd64/Packages
+ 95f151fcf8c14b7cc283a315d7f180a9ef61f176 353 main/binary-amd64/Packages.gz
+ fb55674c7a1b66a6d8488392afc378aeaada24d9 129 main/binary-amd64/Release
+ cfdd0c77d12a52db44e1733dc8420398dacd7dd4 464 main/binary-arm64/Packages
+ 9f1f45125f6ed22676676dec4b1dce5e740ea3d2 358 main/binary-arm64/Packages.gz
+ 5050ed9efcba8a915a107ae7dd64f217a66d76f7 129 main/binary-arm64/Release
+SHA256:
+ 3635163ae67146650890b7c261c36c61c9b890fc94906682d2f6dd5793735846 464 main/binary-amd64/Packages
+ a32d60421f6a9b3acf3ac5256a49be70de2ded3c7e37309514c960339680796f 353 main/binary-amd64/Packages.gz
+ a2dcebfc980180cf1ff9ab566d9c4946b27104af52395e7c34bf615f503af0fd 129 main/binary-amd64/Release
+ a1572d94dd7e091656498ae694498330aaa92bc02777826708ca7091a349dcf2 464 main/binary-arm64/Packages
+ 8da9de02189ebf9e437a674863377159b5d7a53c417da51e5fea2888730650ce 358 main/binary-arm64/Packages.gz
+ a60d9d0b0e607eb7813bf8ae3931cf0de63689bdd21d98b6de595bd98a56b18a 129 main/binary-arm64/Release
