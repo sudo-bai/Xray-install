@@ -1,0 +1,56 @@
+Origin: Xray-install
+Label: Xray-install
+Codename: stable
+Architectures: amd64 arm64
+Components: main
+Description: Unofficial Xray APT Repository (stable)
+
+Origin: Xray-install
+Label: Xray-install
+Codename: main
+Architectures: amd64 arm64
+Components: main
+Description: Unofficial Xray APT Repository (main)
+
+Origin: Xray-install
+Label: Xray-install
+Codename: buster
+Architectures: amd64 arm64
+Components: main
+Description: Unofficial Xray APT Repository (buster)
+
+Origin: Xray-install
+Label: Xray-install
+Codename: bullseye
+Architectures: amd64 arm64
+Components: main
+Description: Unofficial Xray APT Repository (bullseye)
+
+Origin: Xray-install
+Label: Xray-install
+Codename: bookworm
+Architectures: amd64 arm64
+Components: main
+Description: Unofficial Xray APT Repository (bookworm)
+
+Origin: Xray-install
+Label: Xray-install
+Codename: focal
+Architectures: amd64 arm64
+Components: main
+Description: Unofficial Xray APT Repository (focal)
+
+Origin: Xray-install
+Label: Xray-install
+Codename: jammy
+Architectures: amd64 arm64
+Components: main
+Description: Unofficial Xray APT Repository (jammy)
+
+Origin: Xray-install
+Label: Xray-install
+Codename: noble
+Architectures: amd64 arm64
+Components: main
+Description: Unofficial Xray APT Repository (noble)
+

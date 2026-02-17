@@ -1,0 +1,28 @@
+Origin: Xray-install
+Label: Xray-install
+Codename: main
+Date: Tue, 17 Feb 2026 13:48:36 UTC
+Architectures: amd64 arm64
+Components: main
+Description: Unofficial Xray APT Repository (main)
+MD5Sum:
+ cce6a8e84c7e499b7b5604c3dcad8e52 464 main/binary-amd64/Packages
+ f8c765e4e2699072380a9cf03829705b 354 main/binary-amd64/Packages.gz
+ 7e7472165e8e8b3eb0c79d130c787208 128 main/binary-amd64/Release
+ 4ed3c9536ea7d4c1befc14a16a8959ff 464 main/binary-arm64/Packages
+ cb12cd78d9a74de9be31e168078c88fc 356 main/binary-arm64/Packages.gz
+ fe4ccc480f6979d850020bd3f3819c5d 128 main/binary-arm64/Release
+SHA1:
+ 4e8b6edd55582851eb571e619b2defd234a7e66a 464 main/binary-amd64/Packages
+ 881444d024ab476baadc93365303e5b7b6348735 354 main/binary-amd64/Packages.gz
+ a60d611781ad94a0e03faea98216c8a76f95a97b 128 main/binary-amd64/Release
+ 2ae30d07572ccef7b0dc02b44fcd5c82aa8d4af9 464 main/binary-arm64/Packages
+ 2af26a2301c252a16346ed2784186ec477f0e597 356 main/binary-arm64/Packages.gz
+ e95d87b6f2715622727d0fb5f6f3c8bcb8ebfd50 128 main/binary-arm64/Release
+SHA256:
+ 34df1d8f43fd4d833dde4afc084b120d7a085f212e4426de6a54031a85a37671 464 main/binary-amd64/Packages
+ 87241a3e98b8e1e72685b86faf8461c68b104be28e673f2735f422d52b850e0b 354 main/binary-amd64/Packages.gz
+ 42475ea6c2557fd9f509363508bcea9755b96126e404e23b7f4d5684d6483725 128 main/binary-amd64/Release
+ 2fc69a91418bc4cfb976ebc47275764727c37b067bc79f11d7f4fa7e93f671d8 464 main/binary-arm64/Packages
+ 806076d46a40ef0b620888745732659adc859903537961180492c460d4af9a05 356 main/binary-arm64/Packages.gz
+ 1d1f0c074d9f642e23c73657e0ff9a3e4833632ef074f96170d56a96d8f85037 128 main/binary-arm64/Release

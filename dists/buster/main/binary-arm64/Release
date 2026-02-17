@@ -1,0 +1,5 @@
+Component: main
+Origin: Xray-install
+Label: Xray-install
+Architecture: arm64
+Description: Unofficial Xray APT Repository (buster)

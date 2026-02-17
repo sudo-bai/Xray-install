@@ -1,0 +1,28 @@
+Origin: Xray-install
+Label: Xray-install
+Codename: noble
+Date: Tue, 17 Feb 2026 13:48:37 UTC
+Architectures: amd64 arm64
+Components: main
+Description: Unofficial Xray APT Repository (noble)
+MD5Sum:
+ cce6a8e84c7e499b7b5604c3dcad8e52 464 main/binary-amd64/Packages
+ f8c765e4e2699072380a9cf03829705b 354 main/binary-amd64/Packages.gz
+ 747cabb50dd74a6165ae795b90a38a82 129 main/binary-amd64/Release
+ 4ed3c9536ea7d4c1befc14a16a8959ff 464 main/binary-arm64/Packages
+ cb12cd78d9a74de9be31e168078c88fc 356 main/binary-arm64/Packages.gz
+ a974e0b5566fecb5387545d89c7b5401 129 main/binary-arm64/Release
+SHA1:
+ 4e8b6edd55582851eb571e619b2defd234a7e66a 464 main/binary-amd64/Packages
+ 881444d024ab476baadc93365303e5b7b6348735 354 main/binary-amd64/Packages.gz
+ 5a93ce159f13bb7545722e972d9fc5491ad7320a 129 main/binary-amd64/Release
+ 2ae30d07572ccef7b0dc02b44fcd5c82aa8d4af9 464 main/binary-arm64/Packages
+ 2af26a2301c252a16346ed2784186ec477f0e597 356 main/binary-arm64/Packages.gz
+ 51a20a5dae4524fa423e7e97b201170a69b2af90 129 main/binary-arm64/Release
+SHA256:
+ 34df1d8f43fd4d833dde4afc084b120d7a085f212e4426de6a54031a85a37671 464 main/binary-amd64/Packages
+ 87241a3e98b8e1e72685b86faf8461c68b104be28e673f2735f422d52b850e0b 354 main/binary-amd64/Packages.gz
+ d208cbde17b8675758b15da678d77061748615118ed31f94828d4036f30ffde9 129 main/binary-amd64/Release
+ 2fc69a91418bc4cfb976ebc47275764727c37b067bc79f11d7f4fa7e93f671d8 464 main/binary-arm64/Packages
+ 806076d46a40ef0b620888745732659adc859903537961180492c460d4af9a05 356 main/binary-arm64/Packages.gz
+ f4659fa974238ae26da4b721b542e8ad6c9fc1bbbdaaa8873281d12581481052 129 main/binary-arm64/Release
