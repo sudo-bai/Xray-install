@@ -29,7 +29,7 @@ jobs:
       - name: Install Dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y reprepro dpkg-dev
+          sudo apt-get install -y reprepro dpkg-dev gnupg-agent
 
       - name: Import GPG Key
         env:
@@ -41,22 +41,41 @@ jobs:
             exit 1
           fi
           
-          # 1. 设置正确的目录权限
+          # 0. 清理环境，防止残留
+          killall gpg-agent || true
+          rm -rf ~/.gnupg
+
+          # 1. 设置正确的目录权限 (GPG 对此非常敏感)
           mkdir -p ~/.gnupg
           chmod 700 ~/.gnupg
 
           # 2. 配置 GPG 代理以支持无交互模式 (Loopback)
           echo "use-agent" > ~/.gnupg/gpg.conf
           echo "pinentry-mode loopback" >> ~/.gnupg/gpg.conf
+          echo "no-tty" >> ~/.gnupg/gpg.conf
+          
           echo "allow-loopback-pinentry" > ~/.gnupg/gpg-agent.conf
           
-          # 3. 重启代理以应用配置
-          gpg-connect-agent reloadagent /bye
-          
-          # 4. 导入私钥
+          # 3. 导入私钥
           echo "$GPG_PRIVATE_KEY" | gpg --batch --import
 
-          # 5. 设置 GPG_TTY 环境变量 (对 GPG 签名至关重要)
+          # 4. 设置信任级别为绝对信任 (Ultimate) - 关键步骤
+          # 获取 Key ID
+          KEY_ID=$(gpg --list-secret-keys --keyid-format LONG | grep sec | tail -n 1 | awk '{print $2}' | awk -F'/' '{print $2}')
+          
+          if [ -z "$KEY_ID" ]; then
+             echo "CRITICAL ERROR: No secret key found after import."
+             exit 1
+          fi
+          
+          echo "Setting trust for Key ID: $KEY_ID"
+          # 5 表示 Ultimate trust, y 确认
+          echo -e "5\ny\n" | gpg --command-fd 0 --edit-key "$KEY_ID" trust
+
+          # 5. 重启代理以应用配置
+          gpg-connect-agent reloadagent /bye
+
+          # 6. 设置全局环境变量 GPG_TTY
           echo "GPG_TTY=$(tty)" >> $GITHUB_ENV
 
       - name: Get Latest Xray Version
@@ -74,11 +93,6 @@ jobs:
           
           # 获取 Key ID (使用 list-secret-keys 确保获取的是我们刚导入的私钥ID)
           KEY_ID=$(gpg --list-secret-keys --keyid-format LONG | grep sec | tail -n 1 | awk '{print $2}' | awk -F'/' '{print $2}')
-          
-          if [ -z "$KEY_ID" ]; then
-             echo "CRITICAL ERROR: No secret key found. Import failed."
-             exit 1
-          fi
           
           echo "Using Key ID: $KEY_ID"
           
@@ -101,9 +115,11 @@ jobs:
       - name: Check if version exists in repo (stable)
         id: check_repo
         run: |
+          # 显式导出 TTY
+          export GPG_TTY=$(tty)
+          
           # 只需要检查 stable 是否存在即可，因为我们总是全量更新
           if [ -d "public/dists/stable" ]; then
-            # 使用 -b . 指向当前目录 public 的上一级似乎不需要，直接用 reprepro -b public
             if reprepro -b public list stable xray | grep -q "${{ steps.get_version.outputs.version }}"; then
               echo "Version ${{ steps.get_version.outputs.version }} already exists in repo."
               echo "exists=true" >> $GITHUB_OUTPUT
@@ -122,23 +138,27 @@ jobs:
           mkdir -p build_output
           chmod +x scripts/build-deb.sh
           
+          # 再次确保 GPG_TTY 在当前 shell 生效 (reprepro 签名需要)
+          export GPG_TTY=$(tty)
+          
           # 构建 AMD64
           ./scripts/build-deb.sh $VERSION amd64 build_output
           # 构建 ARM64
           ./scripts/build-deb.sh $VERSION arm64 build_output
           
           # 添加到 Reprepro (仓库)
-          # 注意：这里会隐式调用 GPG 进行签名
           for deb in build_output/*.deb; do
             for CODE in $CODENAMES; do
               echo "Adding $deb to $CODE..."
-              reprepro --basedir public includedeb $CODE $deb
+              # --export=force 确保尝试签名
+              reprepro --basedir public --export=force includedeb $CODE $deb
             done
           done
 
       - name: Export Public Key
         if: steps.check_repo.outputs.exists == 'false'
         run: |
+          export GPG_TTY=$(tty)
           gpg --armor --export > public/public.key
 
       - name: Deploy to GitHub Pages
@@ -148,6 +168,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
           publish_branch: gh-pages
-          force_orphan: true
+          force_orphan: false
+          keep_files: true
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
