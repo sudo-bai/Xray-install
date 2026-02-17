@@ -4,44 +4,44 @@ Hash: SHA512
 Origin: Xray-install
 Label: Xray-install
 Codename: main
-Date: Tue, 17 Feb 2026 12:31:41 UTC
+Date: Tue, 17 Feb 2026 12:41:24 UTC
 Architectures: amd64 arm64
 Components: main
 Description: Unofficial Xray APT Repository (main)
 MD5Sum:
- c046ae853cbc71b24540ee8ff3b356fd 464 main/binary-amd64/Packages
- 48384c27c5c7ff1912a0151faa5da95d 356 main/binary-amd64/Packages.gz
+ 23ca4d8a2be1cfae11ddea035ea13bba 464 main/binary-amd64/Packages
+ f3b681699c12a9f8d29be101d74fa361 357 main/binary-amd64/Packages.gz
  7e7472165e8e8b3eb0c79d130c787208 128 main/binary-amd64/Release
- 9868b3d8197b9229d38de9fe065ae510 464 main/binary-arm64/Packages
- 33bf9cbf1f6800cc4d28ac6b278ba488 358 main/binary-arm64/Packages.gz
+ 4f0a8b20c4b052f8b91a66e0fbe0feb4 464 main/binary-arm64/Packages
+ 557ec8184e9853e9601f832f55ade57a 356 main/binary-arm64/Packages.gz
  fe4ccc480f6979d850020bd3f3819c5d 128 main/binary-arm64/Release
 SHA1:
- 085e517988d91e8ec356e972dbab346cec3cf128 464 main/binary-amd64/Packages
- 78e7c43c933f4038ef7b485246e7559d1cd4b9d4 356 main/binary-amd64/Packages.gz
+ 73384a49ded727505d04d7c3275daf4f00d46d72 464 main/binary-amd64/Packages
+ cbcde765ab16e502ac67da087d26869609f405f3 357 main/binary-amd64/Packages.gz
  a60d611781ad94a0e03faea98216c8a76f95a97b 128 main/binary-amd64/Release
- b5496d274af2c4ffe4860895272068a24cbe8578 464 main/binary-arm64/Packages
- 07ff890be4eca79b7dd733138f12310ca6d2a4fb 358 main/binary-arm64/Packages.gz
+ bc675aab6d275b57825322fc315dc4559494da68 464 main/binary-arm64/Packages
+ 88e68aa6702f794d4be21e55983905d229756319 356 main/binary-arm64/Packages.gz
  e95d87b6f2715622727d0fb5f6f3c8bcb8ebfd50 128 main/binary-arm64/Release
 SHA256:
- 0bec52818cfd324ccd381181781658404b6b52c911edfcae7da3d33b4280f89e 464 main/binary-amd64/Packages
- 4d845efff9fb21ae8ff45ced8d299986fe1e25cb71ddbed14bbc6492c74f9cac 356 main/binary-amd64/Packages.gz
+ 01e65ac7eb7d6dcc7e4885be8ffde7d30dda20e0585aca671ca913d97ef71cf3 464 main/binary-amd64/Packages
+ ec5258fd62ff94f854c6958eddd55e5378198ce65b9512c9ad24da6b4d53a9fb 357 main/binary-amd64/Packages.gz
  42475ea6c2557fd9f509363508bcea9755b96126e404e23b7f4d5684d6483725 128 main/binary-amd64/Release
- ab87f8c3d821493b020a52cef22178aae85328c13f81afc0b85bb2fb9c8f4e78 464 main/binary-arm64/Packages
- dca10d60d3e210c9f06c1fae1db901a2067a9622d8abfdbbc4b12e62908538c6 358 main/binary-arm64/Packages.gz
+ fd13e07d76913bec9eed0bc709d8d424ad53362a3f8a15e459ce7080dca7c106 464 main/binary-arm64/Packages
+ 922be5d8638b554159ab954fd43905d6655947797d4663b49e0b77919ce85918 356 main/binary-arm64/Packages.gz
  1d1f0c074d9f642e23c73657e0ff9a3e4833632ef074f96170d56a96d8f85037 128 main/binary-arm64/Release
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEESCDMkM+0ynXKKRnDDXYL02hDoakFAmmUX68ACgkQDXYL02hD
-oamY/RAApSnN8LFNdhp6wKIsTSsrmCKrTNVJ3wfVM8elh8Lc3ZeTQ3jHquR+OOj7
-FrnCog8Eu9yv97wi2YeERAGgEH4dC+dYAjR6wel+p7UQpz5BCsxXZS/7iYSbVIyo
-vgIC7JtfUaFqyTE2IkfJt1EHZv6ulIJneerpIaZmAsV0RFdg/09MrP+pQEWQ9Rik
-w5591w7s59EAlfuk7IleXeFcB2uWCFEWZzPVvFSgXUOAcB4Lum9PojQkUQ8GhBGf
-Dpseo5/9s5V4AHnMsus/oo6ToNRIq6hWM0J07cy62Oh8ei1mgiYSJEqfFB3QDCdG
-FRcD0duDbyxWWlc+gZMFzxzR3//nWGC/JoE8QR/+sTDntUt9RFY/dh+pPE1DmTiG
-TdHLVkq77J6D1ReXFI08qdbgHhChPJP6zaxzGOpOTZ8dF/kuvWlRT+rc1juJqcql
-HXUR1iUoCCpBGmRvryk2N9P0SZCA8WP/l0v1h11DY6R5cH+qw9nHuTNMYaUQzxsh
-71t7tQALXusYqV3PXXe4s0Xs8+DSzTEN3hK2VnhPSgMko7ZBIH1Pd2W6HRYbTuXk
-BDQXd8HsSfjdvKEHZHeYTORUfbVu2+SWlwE4sgV8k+ByOig85iqCouLExYcLq1Q5
-EFW6d4DJi8rFeKRcwRUS6qKG1/lUtsYISvXFZdp+GocyxqVCyiE=
-=iCl+
+iQIzBAEBCgAdFiEESCDMkM+0ynXKKRnDDXYL02hDoakFAmmUYfcACgkQDXYL02hD
+oaloqRAAiV4oM906ZntS+DJ7qYkx00koQDsjd172lr2manxP3ZXs2ZfCWMkstH7R
+3VHBMedPb3ACjTatZxoG9LG8GOvrTjgR0n2uDJeSnEB8USMnVLr8MRXmsYsmOKyI
+e2Hv6j1TUIgVDmAuGRlmdzAbJQsYtK5abKW19bydr97qyv4pqEdRmfdNTgLxcfqE
+LFlzaQ0IRLKWs+1Jx5CDNK9FTCBhWTcVB4cV02mSy7zjPyfeUu6lfk636aSS1RQd
+rxqLm+6a21FHizbBC+OqKkMU6k3CMHnSdqOcBaiqW8Mc8/Iaelb2hFyFruUdFh0n
+RKGACJURz1iuQZBpR6GjfsoI3GRAkK/XBdMfXdDQH2xRz3/0Qwc1RDbXM98eRCoF
+zAZLZEGHFNGMNuBI1bt5WoWlo2BN40b3eI/jAAI5hYr8ABQTGANmPmeMzMLHRkrq
+a8LTlsfbNvQMM6s9QbzHAF1W/SgFIAJxZ55L/qOKJhf0/dk0xNI3JhFOI7le1K8K
+5ekFdF6e9Y56ABFutVc6BxdrENKdxeoBiuOBJGGuFfOCf8MtBd87aLkIhS5YGLKh
+0dFOZNfp9m1UQyM1Yd8mlJneL3nBeCPAs46Pubm6L1NJ1h+cKIvNeyrgURS0FOaS
+VWqoT6DX4A6BJRrG9qgUMAXrQCbzNw5FC5SJ4gfoJVZC1A4cx0g=
+=gopg
 -----END PGP SIGNATURE-----

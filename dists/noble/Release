@@ -1,28 +1,28 @@
 Origin: Xray-install
 Label: Xray-install
 Codename: noble
-Date: Tue, 17 Feb 2026 12:31:41 UTC
+Date: Tue, 17 Feb 2026 12:41:25 UTC
 Architectures: amd64 arm64
 Components: main
 Description: Unofficial Xray APT Repository (noble)
 MD5Sum:
- c046ae853cbc71b24540ee8ff3b356fd 464 main/binary-amd64/Packages
- 48384c27c5c7ff1912a0151faa5da95d 356 main/binary-amd64/Packages.gz
+ 23ca4d8a2be1cfae11ddea035ea13bba 464 main/binary-amd64/Packages
+ f3b681699c12a9f8d29be101d74fa361 357 main/binary-amd64/Packages.gz
  747cabb50dd74a6165ae795b90a38a82 129 main/binary-amd64/Release
- 9868b3d8197b9229d38de9fe065ae510 464 main/binary-arm64/Packages
- 33bf9cbf1f6800cc4d28ac6b278ba488 358 main/binary-arm64/Packages.gz
+ 4f0a8b20c4b052f8b91a66e0fbe0feb4 464 main/binary-arm64/Packages
+ 557ec8184e9853e9601f832f55ade57a 356 main/binary-arm64/Packages.gz
  a974e0b5566fecb5387545d89c7b5401 129 main/binary-arm64/Release
 SHA1:
- 085e517988d91e8ec356e972dbab346cec3cf128 464 main/binary-amd64/Packages
- 78e7c43c933f4038ef7b485246e7559d1cd4b9d4 356 main/binary-amd64/Packages.gz
+ 73384a49ded727505d04d7c3275daf4f00d46d72 464 main/binary-amd64/Packages
+ cbcde765ab16e502ac67da087d26869609f405f3 357 main/binary-amd64/Packages.gz
  5a93ce159f13bb7545722e972d9fc5491ad7320a 129 main/binary-amd64/Release
- b5496d274af2c4ffe4860895272068a24cbe8578 464 main/binary-arm64/Packages
- 07ff890be4eca79b7dd733138f12310ca6d2a4fb 358 main/binary-arm64/Packages.gz
+ bc675aab6d275b57825322fc315dc4559494da68 464 main/binary-arm64/Packages
+ 88e68aa6702f794d4be21e55983905d229756319 356 main/binary-arm64/Packages.gz
  51a20a5dae4524fa423e7e97b201170a69b2af90 129 main/binary-arm64/Release
 SHA256:
- 0bec52818cfd324ccd381181781658404b6b52c911edfcae7da3d33b4280f89e 464 main/binary-amd64/Packages
- 4d845efff9fb21ae8ff45ced8d299986fe1e25cb71ddbed14bbc6492c74f9cac 356 main/binary-amd64/Packages.gz
+ 01e65ac7eb7d6dcc7e4885be8ffde7d30dda20e0585aca671ca913d97ef71cf3 464 main/binary-amd64/Packages
+ ec5258fd62ff94f854c6958eddd55e5378198ce65b9512c9ad24da6b4d53a9fb 357 main/binary-amd64/Packages.gz
  d208cbde17b8675758b15da678d77061748615118ed31f94828d4036f30ffde9 129 main/binary-amd64/Release
- ab87f8c3d821493b020a52cef22178aae85328c13f81afc0b85bb2fb9c8f4e78 464 main/binary-arm64/Packages
- dca10d60d3e210c9f06c1fae1db901a2067a9622d8abfdbbc4b12e62908538c6 358 main/binary-arm64/Packages.gz
+ fd13e07d76913bec9eed0bc709d8d424ad53362a3f8a15e459ce7080dca7c106 464 main/binary-arm64/Packages
+ 922be5d8638b554159ab954fd43905d6655947797d4663b49e0b77919ce85918 356 main/binary-arm64/Packages.gz
  f4659fa974238ae26da4b721b542e8ad6c9fc1bbbdaaa8873281d12581481052 129 main/binary-arm64/Release

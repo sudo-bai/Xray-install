@@ -5,10 +5,10 @@ Maintainer: Xray-install <https://github.com/XTLS/Xray-install>
 Priority: optional
 Section: net
 Filename: pool/main/x/xray/xray_26.2.6_arm64.deb
-Size: 14519276
-SHA256: a02e2d74e14f31b314c2f515da98f8c977a6cc64a80c68d716413a99bea4557a
-SHA1: b4c83747e4e26dbf1e3cf322c877546815fdddc5
-MD5sum: 26c0703dfddfd0642e8dff7b57d49532
+Size: 14519070
+SHA256: dcf3105b4a0f54a28862ed3c11e4a02bcea51fc2b4b92133444aabcecf285aa1
+SHA1: 99c1fb6bad29fb3014eeb555f341441ca7061ee1
+MD5sum: aa421b1f2316ed5779a0795f9da63960
 Description: A unified platform for anti-censorship.
  Xray-core packaged for Debian/Ubuntu.
 
