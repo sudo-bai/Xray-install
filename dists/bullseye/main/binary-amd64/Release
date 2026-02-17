@@ -1,0 +1,5 @@
+Component: main
+Origin: Xray-install
+Label: Xray-install
+Architecture: amd64
+Description: Unofficial Xray APT Repository (bullseye)

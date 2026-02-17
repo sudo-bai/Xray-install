@@ -1,0 +1,47 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Origin: Xray-install
+Label: Xray-install
+Codename: focal
+Date: Tue, 17 Feb 2026 14:30:28 UTC
+Architectures: amd64 arm64
+Components: main
+Description: Unofficial Xray APT Repository (focal)
+MD5Sum:
+ 6db88d9335308c8962fdacfed87273ef 464 main/binary-amd64/Packages
+ ead7c26a711aa44aeaa2c18d491cda85 357 main/binary-amd64/Packages.gz
+ d4c6435defd8d09819d829ee45a637e3 129 main/binary-amd64/Release
+ 084eea119cd38e2b056dcbe02e5c2f87 464 main/binary-arm64/Packages
+ f682d1f3a197357085436590eaef51fc 357 main/binary-arm64/Packages.gz
+ 8e649437bc5c6e7dfc590aff05db67de 129 main/binary-arm64/Release
+SHA1:
+ 3dba8ba8d00210ca9674fa80856900be762d7689 464 main/binary-amd64/Packages
+ 678013482f349af1fe9e49fa081edc45c30d857e 357 main/binary-amd64/Packages.gz
+ fb55674c7a1b66a6d8488392afc378aeaada24d9 129 main/binary-amd64/Release
+ 7d0cdd1f2a0e3b9b6ec448da460263b3a36ab03d 464 main/binary-arm64/Packages
+ 686d6372e1bcdf891f5fa1d09d3014db886f7563 357 main/binary-arm64/Packages.gz
+ 5050ed9efcba8a915a107ae7dd64f217a66d76f7 129 main/binary-arm64/Release
+SHA256:
+ 17c23caee2e1221defe7512c05da209e276a1238bf757c1b32136fe46761e74d 464 main/binary-amd64/Packages
+ d4983a73a37e263159e1d622303aa340bff2ad8a4e9fe02a994a9aaffcc44fc7 357 main/binary-amd64/Packages.gz
+ a2dcebfc980180cf1ff9ab566d9c4946b27104af52395e7c34bf615f503af0fd 129 main/binary-amd64/Release
+ f92d999d950fd9a560074a3030a14e26ca68b0a7e5fed9d9375ecaee65cbdddb 464 main/binary-arm64/Packages
+ 25a71998074a2b484df41a5d0be1fcf0b1b0f7c5fddb635440a538246ea6200b 357 main/binary-arm64/Packages.gz
+ a60d9d0b0e607eb7813bf8ae3931cf0de63689bdd21d98b6de595bd98a56b18a 129 main/binary-arm64/Release
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEESCDMkM+0ynXKKRnDDXYL02hDoakFAmmUe4kACgkQDXYL02hD
+oamYow/+Ku45fjUkc4ktkcG1I/iOm2tDRA+xsi4BxPIP0A4Ug/RieZUcYld55W+d
+1Y/6wbjStdN/IIHyatSpn6KCQ4cRwSl90kr5ZP+RJKr7GppC6BFb7lkBk3YTHZ8g
+xZKEPXk7UnLbr/DpRc/ulQjvhVE98RyvGge8oSlufjL2wjsOGVjIamijNuJSnkTL
+Mg1mHKfxemK6b1mFJuGe7w1E3A8IMzBlSkhf+dtU0SuHuQhG3qFSCR5xdnlcoF7o
+XU5Ef5d2r/UmiUY8ACNA/gHyekuPy4tI+rhT1YNF0o6oLOwNddIlpTH53tqO6KoN
+v//5V3cO7fwNdNZMtolA+sPCjWNsx1ZA/IgRrkb/bcvcgLiQWb0V2J8ZoNBY61N0
+I0VyKJFAlx+0dOTGueQ0yKpXqslpuMjoxu8i8sPGo83sD33VsbP0p2u3CfIXUNIg
+C4LO3ArrAtctFEpU+6FMEEJDvRyhqMphkX8R9SCDpfQziwHpuu3KpseYmTxPXZhj
+q7S3hGUnfUNzWkeYTFlagYoz+B5u0ffS2DfhX7jvhNMz+A7H3K6pr8hcu3CYSs1e
+xngFpRU+TpEFQMHBWTdXqKqnQ82/JEyOa4kd1nBQSuQXAr7W2p0xeuA/dtod7VoT
+SHfGEVhgQJKHvjiJgfqZ/LYnP4Tk+UZIoGFsqkcR+TY/ZzFpRKU=
+=aFhB
+-----END PGP SIGNATURE-----

@@ -1,0 +1,28 @@
+Origin: Xray-install
+Label: Xray-install
+Codename: bullseye
+Date: Tue, 17 Feb 2026 14:30:28 UTC
+Architectures: amd64 arm64
+Components: main
+Description: Unofficial Xray APT Repository (bullseye)
+MD5Sum:
+ 6db88d9335308c8962fdacfed87273ef 464 main/binary-amd64/Packages
+ ead7c26a711aa44aeaa2c18d491cda85 357 main/binary-amd64/Packages.gz
+ 3a005598da7dc79430fe4a9576ce037a 132 main/binary-amd64/Release
+ 084eea119cd38e2b056dcbe02e5c2f87 464 main/binary-arm64/Packages
+ f682d1f3a197357085436590eaef51fc 357 main/binary-arm64/Packages.gz
+ 3056ed2611eebae83a7e42b202e1581f 132 main/binary-arm64/Release
+SHA1:
+ 3dba8ba8d00210ca9674fa80856900be762d7689 464 main/binary-amd64/Packages
+ 678013482f349af1fe9e49fa081edc45c30d857e 357 main/binary-amd64/Packages.gz
+ d8430219584f6b303acc079431c94da1fe0eb3a8 132 main/binary-amd64/Release
+ 7d0cdd1f2a0e3b9b6ec448da460263b3a36ab03d 464 main/binary-arm64/Packages
+ 686d6372e1bcdf891f5fa1d09d3014db886f7563 357 main/binary-arm64/Packages.gz
+ 3992487cbcfc56ad2db9fd9696acc53636e905c1 132 main/binary-arm64/Release
+SHA256:
+ 17c23caee2e1221defe7512c05da209e276a1238bf757c1b32136fe46761e74d 464 main/binary-amd64/Packages
+ d4983a73a37e263159e1d622303aa340bff2ad8a4e9fe02a994a9aaffcc44fc7 357 main/binary-amd64/Packages.gz
+ 927fab87c7e21a3384a3b0425c8057888ddb47a65782bf4d57d974e8a77af29c 132 main/binary-amd64/Release
+ f92d999d950fd9a560074a3030a14e26ca68b0a7e5fed9d9375ecaee65cbdddb 464 main/binary-arm64/Packages
+ 25a71998074a2b484df41a5d0be1fcf0b1b0f7c5fddb635440a538246ea6200b 357 main/binary-arm64/Packages.gz
+ 5f7a53ee0ef1663a26216d6a95a5a0146da2c83c4f91da1333bbca5fa8f5a9f7 132 main/binary-arm64/Release
