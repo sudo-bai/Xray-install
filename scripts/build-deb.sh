@@ -48,7 +48,7 @@ install -m 755 "$WORK_DIR/extract/xray" "$PKG_ROOT/usr/local/bin/xray"
 install -m 644 "$WORK_DIR/extract/geoip.dat" "$PKG_ROOT/usr/local/share/xray/geoip.dat"
 install -m 644 "$WORK_DIR/extract/geosite.dat" "$PKG_ROOT/usr/local/share/xray/geosite.dat"
 
-# 生成 systemd 服务文件 (直接写入，保持与 install-release.sh 一致)
+# 生成 systemd 服务文件
 cat > "$PKG_ROOT/etc/systemd/system/xray.service" <<EOF
 [Unit]
 Description=Xray Service
@@ -75,7 +75,6 @@ WantedBy=multi-user.target
 EOF
 
 # 生成 control 文件
-# Version 去掉 v 前缀
 CLEAN_VERSION="${VERSION#v}"
 
 cat > "$PKG_ROOT/DEBIAN/control" <<EOF
@@ -89,7 +88,7 @@ Description: A unified platform for anti-censorship.
  Xray-core packaged for Debian/Ubuntu.
 EOF
 
-# 生成 postinst 脚本 (用于设置权限和创建初始配置)
+# 生成 postinst 脚本
 cat > "$PKG_ROOT/DEBIAN/postinst" <<EOF
 #!/bin/sh
 set -e
@@ -100,21 +99,16 @@ if [ "\$1" = "configure" ]; then
         echo "{}" > /usr/local/etc/xray/config.json
     fi
     
-    # 设置日志目录权限
-    # 修复：Debian/Ubuntu 上 nobody 用户的组名通常是 nogroup，而不是 nobody
-    # 使用 getent 检查 nogroup 组是否存在
+    # 设置日志目录权限 (修复 Debian 下 group 的问题)
     if getent group nogroup >/dev/null 2>&1; then
         chown nobody:nogroup /var/log/xray
     else
-        # 备用方案：如果 nogroup 不存在，尝试使用 nobody 组 (兼容非 Debian 系统)
         chown nobody:nobody /var/log/xray
     fi
     
     # 重载 systemd
     if command -v systemctl >/dev/null 2>&1; then
         systemctl daemon-reload
-        # 如果是首次安装，不自动启动，遵循 Debian 策略，或者根据需求开启
-        # systemctl enable xray
     fi
 fi
 EOF
@@ -133,6 +127,21 @@ if [ "\$1" = "remove" ]; then
 fi
 EOF
 chmod 755 "$PKG_ROOT/DEBIAN/prerm"
+
+# 【新增】生成 postrm 脚本：处理 purge 时的彻底清理
+cat > "$PKG_ROOT/DEBIAN/postrm" <<EOF
+#!/bin/sh
+set -e
+
+# 只有在 apt purge 时才执行删除
+if [ "\$1" = "purge" ]; then
+    echo "Purging xray configuration and logs..."
+    rm -rf /usr/local/etc/xray
+    rm -rf /var/log/xray
+    rm -rf /usr/local/share/xray
+fi
+EOF
+chmod 755 "$PKG_ROOT/DEBIAN/postrm"
 
 # 构建 .deb
 mkdir -p "$OUTPUT_DIR"
