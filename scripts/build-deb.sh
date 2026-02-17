@@ -57,6 +57,8 @@ After=network.target nss-lookup.target
 
 [Service]
 User=nobody
+# 在 Debian/Ubuntu 上，nobody 的默认组通常是 nogroup
+# 如果不指定 Group，systemd 会使用用户的默认组
 CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 NoNewPrivileges=true
@@ -99,7 +101,14 @@ if [ "\$1" = "configure" ]; then
     fi
     
     # 设置日志目录权限
-    chown nobody:nobody /var/log/xray
+    # 修复：Debian/Ubuntu 上 nobody 用户的组名通常是 nogroup，而不是 nobody
+    # 使用 getent 检查 nogroup 组是否存在
+    if getent group nogroup >/dev/null 2>&1; then
+        chown nobody:nogroup /var/log/xray
+    else
+        # 备用方案：如果 nogroup 不存在，尝试使用 nobody 组 (兼容非 Debian 系统)
+        chown nobody:nobody /var/log/xray
+    fi
     
     # 重载 systemd
     if command -v systemctl >/dev/null 2>&1; then
