@@ -40,10 +40,24 @@ jobs:
             echo "Error: GPG_PRIVATE_KEY secret is missing."
             exit 1
           fi
-          echo "$GPG_PRIVATE_KEY" | gpg --batch --import
-          # 如果有密码，需要配置 gpg-agent (这里假设无密码或简单配置)
+          
+          # 1. 设置正确的目录权限
+          mkdir -p ~/.gnupg
+          chmod 700 ~/.gnupg
+
+          # 2. 配置 GPG 代理以支持无交互模式 (Loopback)
+          echo "use-agent" > ~/.gnupg/gpg.conf
+          echo "pinentry-mode loopback" >> ~/.gnupg/gpg.conf
           echo "allow-loopback-pinentry" > ~/.gnupg/gpg-agent.conf
-          echo "pinentry-mode loopback" > ~/.gnupg/gpg.conf
+          
+          # 3. 重启代理以应用配置
+          gpg-connect-agent reloadagent /bye
+          
+          # 4. 导入私钥
+          echo "$GPG_PRIVATE_KEY" | gpg --batch --import
+
+          # 5. 设置 GPG_TTY 环境变量 (对 GPG 签名至关重要)
+          echo "GPG_TTY=$(tty)" >> $GITHUB_ENV
 
       - name: Get Latest Xray Version
         id: get_version
@@ -58,8 +72,14 @@ jobs:
         run: |
           mkdir -p public/conf
           
-          # 获取 Key ID
-          KEY_ID=$(gpg --list-keys --keyid-format LONG | grep pub | tail -n 1 | awk '{print $2}' | awk -F'/' '{print $2}')
+          # 获取 Key ID (使用 list-secret-keys 确保获取的是我们刚导入的私钥ID)
+          KEY_ID=$(gpg --list-secret-keys --keyid-format LONG | grep sec | tail -n 1 | awk '{print $2}' | awk -F'/' '{print $2}')
+          
+          if [ -z "$KEY_ID" ]; then
+             echo "CRITICAL ERROR: No secret key found. Import failed."
+             exit 1
+          fi
+          
           echo "Using Key ID: $KEY_ID"
           
           # 每次运行时重置 distributions 文件，确保包含所有在 CODENAMES 中的代号
@@ -74,7 +94,7 @@ jobs:
           Components: main
           Description: Unofficial Xray APT Repository ($CODE)
           SignWith: $KEY_ID
-
+          
           EOF
           done
 
@@ -108,8 +128,7 @@ jobs:
           ./scripts/build-deb.sh $VERSION arm64 build_output
           
           # 添加到 Reprepro (仓库)
-          # 使用 --batch 模式避免 GPG 交互问题
-          # 遍历所有代号，将同一个 deb 包添加到不同代号的发行版中
+          # 注意：这里会隐式调用 GPG 进行签名
           for deb in build_output/*.deb; do
             for CODE in $CODENAMES; do
               echo "Adding $deb to $CODE..."
@@ -129,6 +148,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
           publish_branch: gh-pages
-          force_orphan: true # 保持历史记录干净，可选
+          force_orphan: true
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
