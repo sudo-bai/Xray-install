@@ -7,7 +7,6 @@ on:
 
 env:
   # 推荐：同时支持通用代号 (stable) 和主流发行版代号
-  # 这样用户既可以用 stable，也可以用系统自带的代号 (如 jammy, bookworm)
   CODENAMES: "stable main buster bullseye bookworm focal jammy noble"
 
 jobs:
@@ -19,12 +18,23 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      # --- 修复 1: 优雅处理 gh-pages 分支 ---
+      # 尝试拉取分支，如果不存在则忽略错误并创建空目录
+      # 这解决了新仓库第一次运行时 "git fetch failed" 的问题
       - name: Checkout gh-pages
-        uses: actions/checkout@v4
-        with:
-          ref: gh-pages
-          path: public
-        continue-on-error: true
+        id: checkout_pages
+        run: |
+          echo "Fetching gh-pages branch..."
+          git fetch origin gh-pages:gh-pages || echo "Branch gh-pages not found, creating empty context."
+          
+          if git rev-parse --verify gh-pages >/dev/null 2>&1; then
+            echo "Branch exists. Checking out..."
+            # 使用 worktree 将分支挂载到 public 目录
+            git worktree add public gh-pages
+          else
+            echo "Branch does not exist (First run). Creating empty public directory."
+            mkdir -p public
+          fi
 
       - name: Install Dependencies
         run: |
@@ -56,8 +66,10 @@ jobs:
           # 2. 导入私钥
           echo "$GPG_PRIVATE_KEY" | gpg --batch --import
 
-          # 3. 设置绝对信任
-          KEY_ID=$(gpg --list-secret-keys --keyid-format LONG | grep sec | tail -n 1 | awk '{print $2}' | awk -F'/' '{print $2}')
+          # 3. 设置绝对信任 (优化 Key ID 提取逻辑)
+          # 使用 --with-colons 确保格式固定，取第5列为 Key ID
+          KEY_ID=$(gpg --list-secret-keys --keyid-format LONG --with-colons | grep '^sec:' | tail -n 1 | cut -d: -f5)
+          
           if [ -z "$KEY_ID" ]; then
              echo "CRITICAL ERROR: No secret key found after import."
              exit 1
@@ -79,10 +91,6 @@ jobs:
       - name: Setup Reprepro Config
         run: |
           mkdir -p public/conf
-          
-          # 注意：这里我们移除了 'SignWith' 字段
-          # 我们将在后续步骤中使用 gpg 命令行手动签名，以绕过 reprepro 的 GPGME 错误
-          
           rm -f public/conf/distributions
           
           for CODE in $CODENAMES; do
@@ -131,6 +139,9 @@ jobs:
             done
           done
 
+      # --- 修复 2: 修复 GPG Bad Passphrase ---
+      # 使用 --passphrase-fd 0 通过标准输入流传递密码
+      # 这避免了 Shell 特殊字符导致密码被截断的问题
       - name: Sign Release Files (Manual)
         if: steps.check_repo.outputs.exists == 'false'
         env:
@@ -150,20 +161,21 @@ jobs:
             # 清理旧签名
             rm -f "$DIST_DIR/Release.gpg" "$DIST_DIR/InRelease"
             
-            # 准备 GPG 参数
-            # 即使没有密码，loopback 也是安全的 CI 默认配置
-            GPG_ARGS="--batch --yes --pinentry-mode loopback"
-            
-            # 如果配置了密码，则传递给 GPG
-            if [ -n "$GPG_PASSPHRASE" ]; then
-               GPG_ARGS="$GPG_ARGS --passphrase $GPG_PASSPHRASE"
-            fi
+            # 定义签名函数：如果有密码，通过管道传递
+            sign_file() {
+                local ARGS="--batch --yes --pinentry-mode loopback --local-user $GPG_KEY_ID"
+                if [ -n "$GPG_PASSPHRASE" ]; then
+                    echo "$GPG_PASSPHRASE" | gpg $ARGS --passphrase-fd 0 "$@"
+                else
+                    gpg $ARGS "$@"
+                fi
+            }
             
             # 1. 生成 Release.gpg (分离签名)
-            gpg $GPG_ARGS --local-user "$GPG_KEY_ID" --detach-sign --armor --output "$DIST_DIR/Release.gpg" "$DIST_DIR/Release"
+            sign_file --detach-sign --armor --output "$DIST_DIR/Release.gpg" "$DIST_DIR/Release"
             
             # 2. 生成 InRelease (内嵌签名)
-            gpg $GPG_ARGS --local-user "$GPG_KEY_ID" --clearsign --output "$DIST_DIR/InRelease" "$DIST_DIR/Release"
+            sign_file --clearsign --output "$DIST_DIR/InRelease" "$DIST_DIR/Release"
           done
 
       - name: Export Public Key
