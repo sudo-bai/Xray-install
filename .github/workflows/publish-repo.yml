@@ -24,15 +24,15 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Checkout apt-page
+      - name: Checkout apt-repo
         id: checkout_pages
         run: |
-          echo "Fetching apt-page branch..."
-          git fetch origin apt-page:apt-page || echo "Branch apt-page not found, creating empty context."
+          echo "Fetching apt-repo branch..."
+          git fetch origin apt-repo:apt-repo || echo "Branch apt-repo not found, creating empty context."
           
-          if git rev-parse --verify apt-page >/dev/null 2>&1; then
+          if git rev-parse --verify apt-repo >/dev/null 2>&1; then
             echo "Branch exists. Checking out..."
-            git worktree add public apt-page
+            git worktree add public apt-repo
           else
             echo "Branch does not exist (First run). Creating empty public directory."
             mkdir -p public
@@ -198,7 +198,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-          publish_branch: apt-page
+          publish_branch: apt-repo
           force_orphan: false
           keep_files: true
           user_name: 'github-actions[bot]'
